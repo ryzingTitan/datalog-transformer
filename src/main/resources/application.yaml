@@ -1,0 +1,47 @@
+spring:
+  profiles:
+    active: production
+  application:
+    name: datalog-transformer
+
+---
+spring:
+  config:
+    activate:
+      on-profile: production
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017
+      database: dataLogging
+      auto-index-creation: true
+
+user:
+  first-name:
+  last-name:
+  email:
+
+track-info:
+  name: GingerMan (long)
+  latitude: 42.4086
+  longitude: -86.1374
+
+---
+spring:
+  config:
+    activate:
+      on-profile: cucumber
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017
+      database: cucumberTest
+      auto-index-creation: true
+
+user:
+  first-name: test
+  last-name: tester
+  email: test@test.com
+
+track-info:
+  name: Test Track
+  latitude: 42.4086
+  longitude: -86.1374
