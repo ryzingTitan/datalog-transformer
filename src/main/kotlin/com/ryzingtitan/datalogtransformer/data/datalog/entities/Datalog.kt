@@ -1,7 +1,7 @@
 package com.ryzingtitan.datalogtransformer.data.datalog.entities
 
 import lombok.Generated
-import org.springframework.data.annotation.Id
+import org.springframework.data.mongodb.core.index.IndexDirection
 import org.springframework.data.mongodb.core.index.Indexed
 import org.springframework.data.mongodb.core.mapping.Document
 import java.util.UUID
@@ -10,7 +10,7 @@ import java.util.UUID
 @Document
 data class Datalog(
     @Indexed val sessionId: UUID,
-    @Id val epochMilliseconds: Long,
+    @Indexed(direction = IndexDirection.ASCENDING) val epochMilliseconds: Long,
     val data: Data,
     val trackInfo: TrackInfo,
     var user: User,
